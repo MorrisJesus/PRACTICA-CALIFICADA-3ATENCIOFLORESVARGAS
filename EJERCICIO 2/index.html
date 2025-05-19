@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>Generador de Equipos Aleatorios</title>
+    <link href="style.css" rel="stylesheet" type="text/css"/>
+
+    <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+</head>
+<body>
+<div class="container">
+    <!-- Setup Screen -->
+    <div id="setupScreen" class="setup-screen">
+        <div class="header">
+            <h1>Crea equipos al azar</h1>
+            <p>a partir de una lista de nombres de forma automática y gratuita.</p>
+        </div>
+
+        <div class="form-section">
+            <h2>1. Ingresa los participantes</h2>
+            <div class="form-group">
+                <label for="participants">Lista de participantes</label>
+                <div class="textarea-container">
+<textarea
+        id="participants"
+        placeholder="Cada participante debe estar en una nueva línea (máx 50 caracteres)"
+        spellcheck="false"
+></textarea>
+                    <div class="char-counter" id="charCounter">
+                        Participantes: 0 / 100 | Caracteres: 0 / 50
+                    </div>
+                </div>
+                <div class="help-text">Agrega un * para indicar líderes de grupo. Ejemplo: *Líder</div>
+                <div id="participantError" class="error-message hidden"></div>
+            </div>
+        </div>
+
+        <div class="form-section">
+            <h2>2. Cómo dividir:</h2>
+            <div class="radio-group">
+                <div class="radio-option">
+                    <input
+                            type="radio"
+                            id="byTeamCount"
+                            name="divisionType"
+                            value="teamCount"
+                            checked
+                    />
+                    <label for="byTeamCount">Cantidad de equipos</label>
+                </div>
+                <div class="radio-option">
+                    <input
+                            type="radio"
+                            id="byMemberCount"
+                            name="divisionType"
+                            value="memberCount"
+                    />
+                    <label for="byMemberCount">Participantes por equipo</label>
+                </div>
+            </div>
+            <div class="form-group">
+                <select id="divisionSelect"></select>
+            </div>
+        </div>
+
+        <div class="form-section">
+            <h2>3. Título</h2>
+            <div class="form-group">
+                <input
+                        type="text"
+                        id="eventTitle"
+                        placeholder="Copa del Mundo Qatar 2022"
+                        maxlength="100"
+                />
+            </div>
+        </div>
+
+        <div class="button-group">
+            <button class="btn btn-secondary" id="clearBtn">Limpiar</button>
+            <button class="btn btn-primary" id="generateBtn">
+                <span id="generateText">Generar equipos</span>
+                <span id="generateLoading" class="loading hidden"></span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Results Screen -->
+    <div id="resultsScreen" class="results-screen">
+        <div class="results-header">
+            <h1 id="resultsTitle">Equipos Generados</h1>
+            <button class="btn btn-secondary" id="backBtn">← Volver al sorteo</button>
+        </div>
+
+        <div id="teamsContainer" class="teams-container"></div>
+
+        <div class="action-buttons">
+            <button class="btn btn-download" id="downloadBtn">📥 Descargar JPG</button>
+            <button class="btn btn-copy" id="copyAllBtn">📋 Copiar al portapapeles</button>
+            <button class="btn btn-action" id="copyColumnsBtn">📊 Copiar en columnas</button>
+        </div>
+
+        <div id="copySuccess" class="success-message hidden"></div>
+    </div>
+</div>
+<script src="index.js"></script>
+</body>
+</html>
