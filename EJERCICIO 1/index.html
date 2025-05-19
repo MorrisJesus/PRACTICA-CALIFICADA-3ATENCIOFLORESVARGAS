@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Ruleta Aleatoria</title>
+		<link rel="stylesheet" href="styles.css" />
+	</head>
+	<body>
+		<div class="contenido">
+			<div class="contenido-ruleta">
+				<h1>Ruleta Aleatoria</h1>
+				<h3 id="result"></h3>
+				<div class="wheel-container">
+					<canvas id="canvas" width="400" height="400"></canvas>
+					<div id="triangle"></div>
+				</div>
+			</div>
+			<div class="contenido-datos">
+				<div class="controls">
+					<button class="btn-iniciar" onclick="girarRuleta()">Iniciar</button>
+					<button class="btn-reiniciar" onclick="reiniciar()">Reiniciar</button>
+				</div>
+
+				<div id="itemsArea" contenteditable="true"></div>
+				<div class="controles">
+					<div class="fila"><span class="tecla">Space</span> Giralo</div>
+					<div class="fila">
+						<span class="tecla">S</span> Ocultar el elemento seleccionado
+					</div>
+					<div class="fila"><span class="tecla">R</span> Reiniciar</div>
+					<div class="fila"><span class="tecla">E</span> Editar</div>
+					<div class="fila"><span class="tecla">F</span> Pantalla completa</div>
+				</div>
+			</div>
+		</div>
+
+		<script src="script.js"></script>
+	</body>
+</html>
