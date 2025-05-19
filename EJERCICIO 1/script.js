@@ -72,7 +72,6 @@ function dibujarRuleta() {
 
         ctx.restore();
     }
-
 }
 
 let girando = false;
